@@ -1,9 +1,12 @@
 import Link from 'next/link';
 import React from 'react';
+type NavbarProps = {
+    transparence: boolean;
+};
 
-export default function Navbar() {
+export default function Navbar({ transparence }: NavbarProps) {
     return (
-        <div className="navbar bg-base-100">
+        <div className={transparence? 'navbar bg-base-100/80 absolute' : 'navbar bg-base-100'}>
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -36,10 +39,10 @@ export default function Navbar() {
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
-                        <SingelItem source="/" text="Home" />
-                        <SingelItem source="/" text="About me" />
-                        <SingelItem source="/" text="Sonstiges" />
-                        <SingelItem source="/" text="test" />
+                    <SingelItem source="/" text="Home" />
+                    <SingelItem source="/" text="About me" />
+                    <SingelItem source="/" text="Sonstiges" />
+                    <SingelItem source="/" text="test" />
                 </ul>
             </div>
             <div className="navbar-end">
@@ -85,7 +88,11 @@ function MultiItem({ source, text, items }: multiItemProps) {
             </a>
             <ul className="p-2">
                 {items.map((item, idx) => (
-                    <SingelItem key={idx} source={item.source} text={item.text} />
+                    <SingelItem
+                        key={idx}
+                        source={item.source}
+                        text={item.text}
+                    />
                 ))}
             </ul>
         </li>

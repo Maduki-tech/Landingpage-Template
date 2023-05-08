@@ -1,6 +1,6 @@
 import { type NextPage } from 'next';
 import Head from 'next/head';
-import Link from 'next/link';
+import Hero from '~/Components/Hero';
 import Navbar from '~/Components/Navbar';
 
 const Home: NextPage = () => {
@@ -12,7 +12,8 @@ const Home: NextPage = () => {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
 
-            <Navbar />
+            <Navbar transparence={true}/>
+            <Hero />
         </>
     );
 };
